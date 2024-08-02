@@ -13,6 +13,7 @@ const _layout = () => {
         <Stack.Screen name="lasfotos" options = {{headerShown: false}} />
         <Stack.Screen name="innercityarts" options = {{headerShown: false}}/>
         <Stack.Screen name="urbantxt" options = {{headerShown: false}} />
+        <Stack.Screen name="blackgirlscode" options = {{headerShown: false}} />
        </Stack>
     </TitlesProvider>
   );

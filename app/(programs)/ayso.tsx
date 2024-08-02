@@ -53,17 +53,25 @@ const Ayso = () => {
 
 
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const handleHeartClick = () => {
-    const currentTitle = 'American Youth Soccer Organization (AYSO)'; 
+    const currentTitle = 'American Youth Soccer Organization (AYSO)';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
         ? prevTitles.filter((title) => title !== currentTitle)
         : [...prevTitles, currentTitle];
-      console.log('Updated titles on click:', newTitles); 
+      setIsBookmarked(!isAlreadyInArray); 
       return newTitles;
     });
   };
+
+  useEffect(() => {
+    const currentTitle = 'American Youth Soccer Organization (AYSO)';
+    setIsBookmarked(titles.includes(currentTitle));
+  }, [titles]);
+
 
   const router = useRouter();
 
@@ -92,9 +100,6 @@ const Ayso = () => {
       <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
         <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
       </Pressable>
-      <Pressable onPress={handleHeartClick} style={styles.heart}>
-        <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-      </Pressable>
       <View style={styles.pagination}>
         {entries.map((_, index) => (
           <Pressable
@@ -116,9 +121,12 @@ const Ayso = () => {
           <Image source={require('@/assets/images/SoccerTag.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Evenin.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Spring.png')} style={styles.tag} />
-          <Pressable onPress={handleHeartClick}>
-            <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-          </Pressable>
+          <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
+  <Image
+    source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
+    style={styles.heartImage}
+  />
+</Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
         <Text style={styles.dateText}>April 16 - May 16</Text>
@@ -200,15 +208,15 @@ const styles = StyleSheet.create({
       },
       program: {
         width: width * 0.9,
-        height: 100,
+        height: 90,
         fontWeight: '700',
         fontSize: 22,
         marginHorizontal: 22,
-        paddingTop: 40,
-        marginBottom: 20
+        paddingTop: 20,
+        marginBottom: 0
       },
       locIcon: {
-            width: 24,
+        width: 24,
         height: 24,
         marginHorizontal: 17,
       },
@@ -218,7 +226,7 @@ const styles = StyleSheet.create({
       address: {
         fontSize: 18,
         marginLeft: -15,
-        marginBottom: 30,
+        marginBottom: 20,
         width: width * 0.9,
         height: 50,
         fontWeight: '700',
@@ -242,19 +250,19 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 5,
       },
       dateText: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20
+        marginBottom: 10
       },
       dateText2: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20,
+        marginBottom: 5,
       },
       map: {
         height: 300,
@@ -266,14 +274,14 @@ const styles = StyleSheet.create({
       },
       mS: {
         fontWeight: '700',
-        fontSize: 18,
+        fontSize: 20,
         marginHorizontal: 22,
-        marginVertical: 20,
+        marginBottom: 5,
       },
       mSText: {
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20,
+        marginBottom: 10,
       },
       contacts: {
         marginHorizontal: 22,
@@ -281,7 +289,7 @@ const styles = StyleSheet.create({
         height: 25,
         fontSize: 20,
         fontWeight: '700',
-        marginBottom: 20
+        marginBottom: 5
       },
       emailInfo: {
         width: 450,
@@ -323,7 +331,7 @@ const styles = StyleSheet.create({
       },
       heart: {
         position: 'absolute',
-        bottom: 280,
+        bottom: 240,
         width: 60,
         height: 60,
         right: 60
@@ -335,14 +343,14 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 0,
       },
     
       agesText: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20
+        marginBottom: 10
       },
     
       cost: {
@@ -351,14 +359,14 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 5,
       },
     
       costText: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 50
+        marginBottom: 20
       },
 
       backArrowContainer: {
@@ -374,6 +382,18 @@ const styles = StyleSheet.create({
     
       carouselContainer: {
         position: 'relative',
+      },
+
+      heartContainer: {
+        position: 'absolute',
+        bottom: 240,
+        right: 60,
+        width: 60,
+        height: 60,
+      },
+      heartImage: {
+        width: '100%',
+        height: '100%',
       },
     });
     

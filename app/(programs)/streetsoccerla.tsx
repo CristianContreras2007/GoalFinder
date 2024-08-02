@@ -51,17 +51,24 @@ const StreetSoccerLA = () => {
     }
   };
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const handleHeartClick = () => {
-    const currentTitle = 'Street Soccer LA';
+    const currentTitle = 'Urban TXT';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
         ? prevTitles.filter((title) => title !== currentTitle)
         : [...prevTitles, currentTitle];
-      console.log('Updated titles on click:', newTitles); 
+      setIsBookmarked(!isAlreadyInArray); 
       return newTitles;
     });
   };
+
+  useEffect(() => {
+    const currentTitle = 'Urban TXT';
+    setIsBookmarked(titles.includes(currentTitle));
+  }, [titles]);
 
   const router = useRouter();
 
@@ -106,12 +113,15 @@ const StreetSoccerLA = () => {
           <Text style={styles.address}>Address, 900XX</Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/SoccerTag.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/TagSoccer.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Afternoon.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
-          <Pressable onPress={handleHeartClick}>
-            <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-          </Pressable>
+          <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
+  <Image
+    source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
+    style={styles.heartImage}
+  />
+</Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
         <Text style={styles.dateText}>Monday - Friday</Text>
@@ -219,7 +229,7 @@ const styles = StyleSheet.create({
   address: {
     fontSize: 18,
     marginLeft: -15,
-    marginBottom: 30,
+    marginBottom: 10,
     width: width * 0.9,
     height: 50,
     fontWeight: '700',
@@ -237,7 +247,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 20,
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   dateText: {
     fontWeight: '600',
@@ -248,7 +258,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 14,
     marginHorizontal: 22,
-    marginBottom: 50,
+    marginBottom: 20,
   },
   map: {
     height: 300,
@@ -260,9 +270,9 @@ const styles = StyleSheet.create({
   },
   mS: {
     fontWeight: '700',
-    fontSize: 18,
+    fontSize: 20,
     marginHorizontal: 22,
-    marginVertical: 20,
+    marginVertical: 5,
   },
   mSText: {
     fontSize: 14,
@@ -275,7 +285,7 @@ const styles = StyleSheet.create({
     height: 25,
     fontSize: 20,
     fontWeight: '700',
-    marginBottom: 20
+    marginBottom: 5
   },
   emailInfo: {
     width: 450,
@@ -331,5 +341,17 @@ const styles = StyleSheet.create({
 
   detailsContaier: {
 
-  }
+  },
+
+  heartContainer: {
+    position: 'absolute',
+    bottom: 200,
+    right: 60,
+    width: 60,
+    height: 60,
+  },
+  heartImage: {
+    width: '100%',
+    height: '100%',
+  },
 });

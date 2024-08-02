@@ -16,8 +16,8 @@ const entries = [
 const UrbanTXT = () => {
   const mapRef = useRef<MapView | null>(null);
   const markerCoordinate = {
-    latitude: 33.851430,
-    longitude: -118.290480
+    latitude: 34.017340,
+    longitude: -118.278280
   };
 
   useEffect(() => {
@@ -53,17 +53,25 @@ const UrbanTXT = () => {
 
 
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const handleHeartClick = () => {
-    const currentTitle = 'Urban TXT'; 
+    const currentTitle = 'Urban TXT';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
         ? prevTitles.filter((title) => title !== currentTitle)
         : [...prevTitles, currentTitle];
-      console.log('Updated titles on click:', newTitles); 
+      setIsBookmarked(!isAlreadyInArray); 
       return newTitles;
     });
   };
+
+  useEffect(() => {
+    const currentTitle = 'Urban TXT';
+    setIsBookmarked(titles.includes(currentTitle));
+  }, [titles]);
+
 
   const router = useRouter();
 
@@ -92,9 +100,6 @@ const UrbanTXT = () => {
       <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
         <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
       </Pressable>
-      <Pressable onPress={handleHeartClick} style={styles.heart}>
-        <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-      </Pressable>
       <View style={styles.pagination}>
         {entries.map((_, index) => (
           <Pressable
@@ -105,20 +110,23 @@ const UrbanTXT = () => {
         ))}
       </View>
     </View>
-        <Text style={styles.program}> Urban TXT - Teens Expoloring Technology
+        <Text style={styles.program}>Urban TXT - Teens Expoloring Technology
         </Text>
         <View style={styles.general}>
           <Image style={styles.locIcon} source={require('@/assets/images/Location.png')} />
-          <Text style={styles.address}>
+          <Text style={styles.address}>3655 S Grand Ave #220, Los Angeles, CA 90007
 </Text>
         </View>
         <View style={styles.tags}>
           <Image source={require('@/assets/images/Coding.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Morning.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Summer.png')} style={styles.tag} />
-          <Pressable onPress={handleHeartClick}>
-            <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-          </Pressable>
+          <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
+  <Image
+    source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
+    style={styles.heartImage}
+  />
+</Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
         <Text style={styles.dateText}>May 25-August 10</Text>
@@ -132,8 +140,8 @@ const UrbanTXT = () => {
             ref={mapRef}
             style={styles.map}
             initialRegion={{
-              latitude: 33.851430,
-              longitude: -118.290480,
+              latitude: 34.017340,
+              longitude: -118.278280,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
@@ -204,10 +212,11 @@ const styles = StyleSheet.create({
         fontSize: 22,
         marginHorizontal: 22,
         paddingTop: 40,
-        marginBottom: 20
+        marginBottom: 10,
+        marginVertical: -20
       },
       locIcon: {
-            width: 24,
+        width: 24,
         height: 24,
         marginHorizontal: 17,
       },
@@ -241,7 +250,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 5,
       },
       dateText: {
         fontWeight: '600',
@@ -253,7 +262,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20,
+        marginBottom: 10,
       },
       map: {
         height: 300,
@@ -265,9 +274,9 @@ const styles = StyleSheet.create({
       },
       mS: {
         fontWeight: '700',
-        fontSize: 18,
+        fontSize: 20,
         marginHorizontal: 22,
-        marginVertical: 20,
+        marginVertical: 5,
       },
       mSText: {
         fontSize: 14,
@@ -280,7 +289,7 @@ const styles = StyleSheet.create({
         height: 25,
         fontSize: 20,
         fontWeight: '700',
-        marginBottom: 20
+        marginBottom: 5
       },
       emailInfo: {
         width: 450,
@@ -335,14 +344,14 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 0,
       },
     
       agesText: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20
+        marginBottom: 10
       },
     
       cost: {
@@ -351,14 +360,14 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginBottom: 10,
+        marginBottom: 5,
       },
     
       costText: {
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 50
+        marginBottom: 20
       },
 
       backArrowContainer: {
@@ -381,6 +390,18 @@ const styles = StyleSheet.create({
         fontSize: 14,
         marginHorizontal: 22,
         marginBottom: 20,
+      },
+
+      heartContainer: {
+        position: 'absolute',
+        bottom: 250,
+        right: 60,
+        width: 60,
+        height: 60,
+      },
+      heartImage: {
+        width: '100%',
+        height: '100%',
       },
     });
     

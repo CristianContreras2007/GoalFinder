@@ -15,14 +15,10 @@ export default function Index() {
         <TextInput style={styles.emailInput} placeholder='Type Here' />
         <Text style={styles.password}>Password</Text>
         <TextInput style={styles.passwordInput} placeholder='Type Here' />
-        <Pressable style={styles.continue} onPress = {() => router.replace('/survey')}>
+        <Pressable style={styles.continue} onPress = {() => router.navigate('/survey')}>
         <Text style={styles.next}>Next</Text>
         </Pressable>
         <Text style = {styles.forgot}>Forgot Password?</Text>
-        <Pressable
-          onPress={() => router.replace('/')}>
-          <Text style = {styles.back}>Back</Text>
-        </Pressable>
         </View>
     </ScrollView>
   );
@@ -96,6 +92,17 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     fontWeight: '400',
     textAlign: 'center',
-  }
+  },
+
+  backArrowContainer: {
+    marginVertical: 50,
+    marginHorizontal: 10,
+    marginBottom: -50
+ },
+   backArrowImage: {
+     width: 48,
+     height: 48,
+     marginBottom: 0
+   },
   
 });

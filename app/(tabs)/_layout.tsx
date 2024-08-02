@@ -9,35 +9,41 @@ const TabsLayout: React.FC = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ size, color, focused }) => {
           let iconSource: any;
+          let iconSize: number;
           switch (route.name) {
             case 'foryou':
-              iconSource = require('@/assets/images/Home.png');
+              iconSource = require('@/assets/images/Home.png'); 
+              iconSize = 20
               break;
             case 'notifications':
               iconSource = require('@/assets/images/Save.png');
+              iconSize = 30
               break;
             case 'me':
               iconSource = require('@/assets/images/Me.png');
+              iconSize = 25
               break;
             default:
               iconSource = require('@/assets/images/Home.png');
+              iconSize = 20
           }
+
 
           return (
             <TabIcon
               source={iconSource}
-              size={size}
+              size={iconSize}
               color={color}
               isActive={focused}
             />
           );
         },
         tabBarStyle: {
-          backgroundColor: '#ffffff', 
+          backgroundColor: '#FFFFFF', 
           height: 100,
         },
         tabBarActiveTintColor: '#FFFFFF', 
-        tabBarInactiveTintColor: '#000000', 
+        tabBarInactiveTintColor: '#000000',
       })}
     >
       <Tabs.Screen

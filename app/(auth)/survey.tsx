@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, Pressable, ScrollView, DevToolsSettingsManager } from 'react-native';
+import { Text, View, StyleSheet, Pressable, ScrollView, DevToolsSettingsManager, Image } from 'react-native';
 import { router, } from 'expo-router';
 import TopicButtons from '@/components/TopicButtons';
 
@@ -26,12 +26,20 @@ const handleDonePress = () => {
     }
 }
 
+const handleBackArrowClick = () => {
+    router.back(); 
+  };
+
 
     return (
 
     <View>
     <ScrollView contentContainerStyle={styles.scrollViewContainer}
     showsVerticalScrollIndicator = {false}>
+            <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
+            <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
+            </Pressable>
+            <View style = {styles.container}>
             <Text style = {styles.title}>Choose Your Program</Text>  
             <Text style = {styles.description}>Select Programs you think you'd be interested in. 
                 You can always change this from your profile, so don't stress!</Text>
@@ -105,6 +113,7 @@ const handleDonePress = () => {
             onPress = {handleDonePress}>
                  <Text style = {styles.text}>Done</Text>
             </Pressable>
+            </View>
     </ScrollView>
 </View>
     )
@@ -113,9 +122,11 @@ const handleDonePress = () => {
 const styles = StyleSheet.create({
     scrollViewContainer: {
         flexGrow: 1,
-        alignItems: 'center',
       },
 
+      container: {
+        alignItems: 'center',
+      },
 
     title: {
         width: 346,
@@ -188,6 +199,17 @@ const styles = StyleSheet.create({
     images: {
 
     },
+
+    backArrowContainer: {
+       marginVertical: 50,
+       marginHorizontal: 20,
+       marginBottom: 0
+    },
+      backArrowImage: {
+        width: 48,
+        height: 48,
+        marginBottom: 0
+      },
 }
 
 );

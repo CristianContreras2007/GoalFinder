@@ -10,8 +10,8 @@ const programImages: Record<string, any> = {
   'Las Fotos': require('@/assets/images/LFP.png'),
   'Urban TXT': require('@/assets/images/TXT.png'),
   'InnerCity Arts': require('@/assets/images/InnerBookmark.png'),
-  'American Youth Soccer Organization (AYSO)': require('@/assets/images/AysoBookmark.png')
-
+  'American Youth Soccer Organization (AYSO)': require('@/assets/images/AysoBookmark.png'),
+  'Black Girls Code': require('@/assets/images/BCGBookmark.png')
 };
 
 const { width } = Dimensions.get('window');
@@ -45,6 +45,9 @@ const Notifications = () => {
             break;
             case 'American Youth Soccer Organization (AYSO)':
               router.navigate('/ayso'); 
+              break;
+              case 'Black Girls Code':
+              router.navigate('/blackgirlscode'); 
               break;
       default:
         break;

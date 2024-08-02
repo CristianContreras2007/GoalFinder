@@ -1,4 +1,4 @@
-import { Text, View, Pressable, StyleSheet, ScrollView } from "react-native";
+import { Text, View, Pressable, StyleSheet, ScrollView, Image } from "react-native";
 import { router } from 'expo-router'
 import React from 'react';
 
@@ -7,20 +7,21 @@ export default function Intro() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
     <View style={styles.container}>
+      <Image source = {require('@/assets/images/GOALSplash.png')} style = {styles.logo}/>
       <Text style={styles.logoText}>GOAL Finder</Text>
       <Text style={styles.slogan}>The best way to find new programs for you</Text>
       <Pressable 
             style={styles.createButton}
-            onPress={() => router.replace('/signupfirst')}>
+            onPress={() => router.navigate('/signupfirst')}>
         <Text style={styles.createText}>SignUp</Text>
       </Pressable>
       <Pressable 
         style={styles.alreadyButton} 
-        onPress={() => router.replace('/login')}
+        onPress={() => router.navigate('/login')}
       >
         <Text style={styles.alreadyText}>Login</Text>
       </Pressable>
-      <Pressable onPress = {() => router.replace('/adminlogin')}>
+      <Pressable onPress = {() => router.navigate('/adminlogin')}>
         <Text style = {styles.admin}>Have an admin account? Click here</Text>
       </Pressable>
     </View>
@@ -37,13 +38,13 @@ const styles = StyleSheet.create({
   },
   logoText: {
     fontSize: 40,
-    marginBottom: 78,
+    marginBottom: 40,
     textAlign: 'center',
-    marginVertical: 200,
+    marginVertical: 0,
   },
   slogan: {
     fontSize: 16,
-    marginBottom: 92,
+    marginBottom:50,
     textAlign: 'center',
   },
   createButton: {
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 23,
+    marginBottom: 20,
   },
   createText: {
     color: '#FFFFFF',
@@ -80,6 +81,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: 'underline',
     fontWeight: '400',
+  },
+
+  logo: {
+    width: 250,
+    height: 250,
+    marginBottom: 50
   }
 
 

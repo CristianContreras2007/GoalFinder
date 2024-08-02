@@ -1,21 +1,34 @@
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, TextInput, Image, StyleSheet } from 'react-native';
 
-
-const SearchBar = () => {
-  return (
-    <View>
-      <TextInput placeholder='Type Here' style = {styles.searchBar}></TextInput>
-      <Image source = {require('@/assets/images/Search.png')}
-      style = {styles.searchIcon}/>
-    </View>
-  )
+interface SearchBarProps {
+    value: string;
+    onChangeText: (text: string) => void;
 }
 
-export default SearchBar
+const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText }) => {
+    return (
+        <View style={styles.container}>
+            <TextInput
+                value={value}
+                onChangeText={onChangeText}
+                placeholder='Type Here'
+                style={styles.searchBar}
+            />
+            <Image
+                source={require('@/assets/images/Search.png')}
+                style={styles.searchIcon}
+            />
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-    searchBar: {   
+    container: {
+        position: 'relative',
+        width: '100%',
+    },
+    searchBar: {
         borderRadius: 28,
         backgroundColor: '#ECE6F0',
         width: '88%',
@@ -24,7 +37,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 60,
         fontSize: 18,
     },
-
     searchIcon: {
         position: 'absolute',
         top: 40,
@@ -32,6 +44,6 @@ const styles = StyleSheet.create({
         width: 25,
         height: 20,
     }
+});
 
-    
-})
+export default SearchBar;

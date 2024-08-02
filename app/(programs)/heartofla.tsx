@@ -50,17 +50,26 @@ const HeartofLA = () => {
     }
   };
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   const handleHeartClick = () => {
-    const currentTitle = 'Heart of LA'; // Set to the title specific to this page
+    const currentTitle = 'Heart of LA';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
         ? prevTitles.filter((title) => title !== currentTitle)
         : [...prevTitles, currentTitle];
-      console.log('Updated titles on click:', newTitles); // Log the updated titles
+      setIsBookmarked(!isAlreadyInArray); 
       return newTitles;
     });
   };
+
+  useEffect(() => {
+    const currentTitle = 'Heart of LA';
+    setIsBookmarked(titles.includes(currentTitle));
+  }, [titles]);
+
+
 
   const router = useRouter();
 
@@ -89,9 +98,6 @@ const HeartofLA = () => {
       <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
         <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
       </Pressable>
-      <Pressable onPress={handleHeartClick} style={styles.heart}>
-        <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-      </Pressable>
       <View style={styles.pagination}>
         {entries.map((_, index) => (
           <Pressable
@@ -108,12 +114,15 @@ const HeartofLA = () => {
           <Text style={styles.address}>701 Wilshire Blvd #100, Los Angeles, CA 90057</Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/SoccerTag.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/TagSoccer.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Afternoon.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
-          <Pressable onPress={handleHeartClick}>
-            <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-          </Pressable>
+          <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
+  <Image
+    source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
+    style={styles.heartImage}
+  />
+</Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
         <Text style={styles.dateText}>June 24 - August 2</Text>
@@ -197,6 +206,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginHorizontal: 22,
     paddingTop: 20,
+    marginBottom: -20,
   },
   locIcon: {
     width: 24,
@@ -209,7 +219,7 @@ const styles = StyleSheet.create({
   address: {
     fontSize: 18,
     marginLeft: -15,
-    marginBottom: 30,
+    marginBottom: 20,
     width: width * 0.9,
     height: 50,
     fontWeight: '700',
@@ -233,13 +243,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 20,
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   dateText: {
     fontWeight: '600',
     fontSize: 14,
     marginHorizontal: 22,
-    marginBottom: 20
+    marginBottom: 10
   },
   dateText2: {
     fontWeight: '600',
@@ -257,14 +267,14 @@ const styles = StyleSheet.create({
   },
   mS: {
     fontWeight: '700',
-    fontSize: 18,
+    fontSize: 20,
     marginHorizontal: 22,
-    marginVertical: 20,
+    marginVertical: 5,
   },
   mSText: {
     fontSize: 14,
     marginHorizontal: 22,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   contacts: {
     marginHorizontal: 22,
@@ -326,14 +336,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 20,
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 0,
   },
 
   agesText: {
     fontWeight: '600',
     fontSize: 14,
     marginHorizontal: 22,
-    marginBottom: 20
+    marginBottom: 10
   },
 
   cost: {
@@ -342,14 +352,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 20,
     marginHorizontal: 22,
-    marginBottom: 10,
+    marginBottom: 5,
   },
 
   costText: {
     fontWeight: '600',
     fontSize: 14,
     marginHorizontal: 22,
-    marginBottom: 50
+    marginBottom: 20
   },
 
   backArrowContainer: {
@@ -365,5 +375,17 @@ const styles = StyleSheet.create({
 
   carouselContainer: {
     position: 'relative',
+  },
+
+  heartContainer: {
+    position: 'absolute',
+    bottom: 210,
+    right: 60,
+    width: 60,
+    height: 60,
+  },
+  heartImage: {
+    width: '100%',
+    height: '100%',
   },
 });

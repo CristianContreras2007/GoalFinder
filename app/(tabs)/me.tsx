@@ -16,7 +16,7 @@ const Me = () => {
       </View>
       <Text style = {styles.setting}>Settings</Text>
       <Pressable style = {styles.purpleBox}
-      onPress = {() => router.replace('/survey')}>
+      onPress = {() => router.navigate('/survey')}>
         <Text style = {styles.changeInterests}>Change Interests</Text>
         <Image source = {require('@/assets/images/Arrow.png')} 
         style = {styles.arrow}/>

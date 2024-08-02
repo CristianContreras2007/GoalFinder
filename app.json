@@ -8,17 +8,17 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/Arrow.png",
+      "image": "./assets/images/GOALSplash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5E60CE"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Arrow.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/GOALSplash.png",
+        "backgroundColor": "#5E60CE"
       }
     },
     "web": {

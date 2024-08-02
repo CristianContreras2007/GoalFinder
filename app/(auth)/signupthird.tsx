@@ -1,10 +1,17 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput, Pressable, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Pressable, ScrollView, Image } from 'react-native';
 import { router } from 'expo-router';
+
+const handleBackArrowClick = () => {
+  router.back(); 
+};
 
 export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+      <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
+            <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
+            </Pressable>
       <View style={styles.content}>
         <Text style = {styles.firstTitle}>Now, Create</Text>
         <Text style = {styles.secondTitle}>Your Account</Text>
@@ -13,12 +20,8 @@ export default function Index() {
         <Text style={styles.password}>Password</Text>
         <TextInput style={styles.passwordInput} placeholder='Type Here' />
         <Pressable style={styles.continue}
-        onPress = {() => router.replace('/survey')}>
+        onPress = {() => router.navigate('/survey')}>
         <Text style={styles.next}>Next</Text>
-        </Pressable>
-        <Pressable
-        onPress = {() => router.replace('/signupsecond')}>
-        <Text style = {styles.goBack}>Go Back</Text>
         </Pressable>
         </View>
     </ScrollView>
@@ -110,5 +113,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
   },
+
+  backArrowContainer: {
+    marginVertical: 50,
+    marginHorizontal: 10,
+    marginBottom: -50
+ },
+   backArrowImage: {
+     width: 48,
+     height: 48,
+     marginBottom: 0
+   },
   
 });

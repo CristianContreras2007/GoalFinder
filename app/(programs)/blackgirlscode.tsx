@@ -7,17 +7,17 @@ import { useTitles } from '@/components/TitlesContext';
 const { width, height } = Dimensions.get('window');
 
 const entries = [
-  { title: 'First Image', illustration: require('@/assets/images/InnerCityArt1.png') },
-  { title: 'Second Image', illustration: require('@/assets/images/InnerCityArt2.png') },
-  { title: 'Third Image', illustration: require('@/assets/images/InnerCityArt3.png') },
-  { title: 'Fourth Image', illustration: require('@/assets/images/InnerCityArt4.png') },
+  { title: 'First Image', illustration: require('@/assets/images/BCG1.png') },
+  { title: 'Second Image', illustration: require('@/assets/images/BCG2.png') },
+  { title: 'Third Image', illustration: require('@/assets/images/BCG3.png') },
+  { title: 'Fourth Image', illustration: require('@/assets/images/BCG4.png') },
 ];
 
-const InnerCityArts = () => {
+const BlackGirlsCode = () => {
   const mapRef = useRef<MapView | null>(null);
   const markerCoordinate = {
-    latitude: 34.061827,
-    longitude: -118.285648
+    latitude: 34.324810,
+    longitude: -118.547250
   };
 
   useEffect(() => {
@@ -51,12 +51,10 @@ const InnerCityArts = () => {
     }
   };
 
-
-
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleHeartClick = () => {
-    const currentTitle = 'InnerCity Arts';
+    const currentTitle = 'Black Girls Code';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
@@ -68,15 +66,18 @@ const InnerCityArts = () => {
   };
 
   useEffect(() => {
-    const currentTitle = 'InnerCity Arts';
+    const currentTitle = 'Black Girls Code';
     setIsBookmarked(titles.includes(currentTitle));
   }, [titles]);
+
 
   const router = useRouter();
 
   const handlePress = () => {
-    Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSdD0kV6BgLilIIAScS0c_TMqQJ02-H27zUCEpyMfrXKmClpBQ/viewform');
+    Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSeON42Ck2EexbgHlzGH7uYM5Z0zuGfbYGcnoSqvzjnySPsMIw/viewform');
   }
+
+
 
   return (
     <View style={styles.container}>
@@ -109,21 +110,17 @@ const InnerCityArts = () => {
         ))}
       </View>
     </View>
-        <Text style={styles.program}>Inner-City Arts
+        <Text style={styles.program}> Black Girls Code
         </Text>
         <View style={styles.general}>
           <Image style={styles.locIcon} source={require('@/assets/images/Location.png')} />
-          <Text style={styles.address}> 
-          Inner-City Arts
-        720 S. Commonwealth Avenue
-Los Angeles, CA 90005
-
+          <Text style={styles.address}> The Beehive SoLa Impact, Los Angeles, CA
 </Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/DigitalArt.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Evenin.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/CodingTag.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Morning.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Summer.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
   <Image
     source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
@@ -131,40 +128,38 @@ Los Angeles, CA 90005
   />
 </Pressable>
         </View>
-        
         <Text style={styles.dates}>Dates</Text>
-        <Text style={styles.dateText}>Saturdays</Text>
-        <Text style={styles.dateText2}>September 14 - November 23</Text>
+        <Text style={styles.dateText}>July 22 - August 2</Text>
+        <Text style={styles.dateText2}> 9am to 4 pm pst
+        </Text>
         <Text style={styles.ages}>Ages</Text>
-        <Text style={styles.agesText}> 6 - 17</Text>
+        <Text style={styles.agesText}>11 - 18</Text>
         <Text style={styles.cost}>Cost</Text>
-        <Text style={styles.costText}>Free</Text>
+        <Text style={styles.costText}>$100</Text>
         <View style={styles.mapContainer}>
           <MapView
             ref={mapRef}
             style={styles.map}
             initialRegion={{
-              latitude:  34.061827,
-              longitude: -118.285648,
+              latitude: 34.324810,
+              longitude: -118.547250,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
           >
             <Marker
               coordinate={markerCoordinate}
-              title="Inner City Arts"
-              description="Location of Program"
+              title="Black Girls Code"
+              description="Location of Office"
             />
           </MapView>
         </View>
         <Text style={styles.mS}>Description</Text>
         <Text style={styles.mSText}>
-        Inner-City Arts provides high-quality arts education to underserved youth in Los Angeles, offering a wide range of programs in visual arts, performing arts, and digital media. Their mission is to foster creativity and self-expression, enhance academic achievement, and build confidence among young people. Through after-school programs, workshops, and special events, Inner-City Arts aims to create a supportive environment where children and teenagers can explore their artistic talents and develop essential life skills.
-        </Text>  
-        <Text style={styles.contacts}>Contact</Text>
-        <Text style={styles.emailInfo}>Email: info@inner-cityarts.org
+        Black Girls Code is a nonprofit organization focused on providing young girls of color with the skills and opportunities to excel in technology. The program offers a range of activities, including coding workshops, hackathons, and summer camps. These sessions are designed to build technical skills, foster creativity, and encourage future careers in STEM fields. Participants gain hands-on experience with programming, app development, and other tech-related topics.
         </Text>
-        <Text style={styles.numberInfo}>Phone: (213) 627-9621
+        <Text style={styles.contacts}>Contact</Text>
+        <Text style={styles.emailInfo}>info@blackgirlscode.com
         </Text>
       </ScrollView>
       <View style={styles.applyView}>
@@ -176,7 +171,7 @@ Los Angeles, CA 90005
   );
 };
 
-export default InnerCityArts;
+export default BlackGirlsCode;
 
 
 const styles = StyleSheet.create({
@@ -217,8 +212,8 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 22,
         marginHorizontal: 22,
-        paddingTop: 40,
-        marginBottom: -30
+        paddingTop: 20,
+        marginBottom: -40
       },
       locIcon: {
         width: 24,
@@ -302,6 +297,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 17,
         marginHorizontal: 22,
+        marginBottom: 150
       },
       numberInfo: {
         width: 450,
@@ -336,7 +332,7 @@ const styles = StyleSheet.create({
       },
       heart: {
         position: 'absolute',
-        bottom: 230,
+        bottom: 220,
         width: 60,
         height: 60,
         right: 60
@@ -344,7 +340,7 @@ const styles = StyleSheet.create({
     
       ages: {
         width: 101,
-        height: 30,
+        height:30,
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
@@ -387,6 +383,13 @@ const styles = StyleSheet.create({
     
       carouselContainer: {
         position: 'relative',
+      },
+
+      dataText2: {
+        fontWeight: '600',
+        fontSize: 14,
+        marginHorizontal: 22,
+        marginBottom: 20,
       },
 
       heartContainer: {
