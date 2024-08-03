@@ -121,8 +121,8 @@ Los Angeles, CA 90005
 </Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/DigitalArt.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Evenin.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/DigitalArtTag.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Evening.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
   <Image
@@ -180,227 +180,235 @@ export default InnerCityArts;
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-      },
-      scrollViewContainer: {
-        flexGrow: 1,
-      },
-      scrollView: {
-        width: '100%',
-      },
-      carouselItem: {
-        width: width,
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
-      image: {
-        width: '100%',
-        height: height * 0.4,
-      },
-      pagination: {
-        flexDirection: 'row',
-        position: 'absolute',
-        bottom: 10,
-        alignSelf: 'center',
-      },
-      dot: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: '#000',
-        margin: 5,
-      },
-      program: {
-        width: width * 0.9,
-        height: 100,
-        fontWeight: '700',
-        fontSize: 22,
-        marginHorizontal: 22,
-        paddingTop: 40,
-        marginBottom: -30
-      },
-      locIcon: {
-        width: 24,
-        height: 24,
-        marginHorizontal: 17,
-      },
-      general: {
-        flexDirection: 'row',
-      },
-      address: {
-        fontSize: 18,
-        marginLeft: -15,
-        marginBottom: 30,
-        width: width * 0.9,
-        height: 50,
-        fontWeight: '700',
-        color: 'black',
-        paddingHorizontal: 10
-      },
-      tag: {
-        width: width * 0.25,
-        height: width * 0.25,
-        marginHorizontal: 17,
-        resizeMode: 'contain'
-      },
-      tags: {
-        flexDirection: 'row',
-        marginBottom: 20,
-        justifyContent: 'space-around'
-      },
-      dates: {
-        width: 101,
-        height: 25,
-        fontWeight: '700',
-        fontSize: 20,
-        marginHorizontal: 22,
-        marginBottom: 10,
-      },
-      dateText: {
-        fontWeight: '600',
-        fontSize: 14,
-        marginHorizontal: 22,
-        marginBottom: 0
-      },
-      dateText2: {
-        fontWeight: '600',
-        fontSize: 14,
-        marginHorizontal: 22,
-        marginBottom: 20,
-      },
-      map: {
-        height: 300,
-        width: '90%',
-        marginBottom: 20,
-      },
-      mapContainer: {
-        alignItems: 'center',
-      },
-      mS: {
-        fontWeight: '700',
-        fontSize: 18,
-        marginHorizontal: 22,
-        marginVertical: 20,
-      },
-      mSText: {
-        fontSize: 14,
-        marginHorizontal: 22,
-        marginBottom: 20,
-      },
-      contacts: {
-        marginHorizontal: 22,
-        width: 450,
-        height: 25,
-        fontSize: 20,
-        fontWeight: '700',
-        marginBottom: 20
-      },
-      emailInfo: {
-        width: 450,
-        height: 25,
-        fontWeight: '600',
-        fontSize: 17,
-        marginHorizontal: 22,
-      },
-      numberInfo: {
-        width: 450,
-        height: 25,
-        fontWeight: '600',
-        fontSize: 17,
-        marginHorizontal: 22,
-        marginBottom: 120
-      },
-      apply: {
-        width: 171,
-        height: 77.17,
-        backgroundColor: '#5E60CE',
-        justifyContent: 'center',
-        borderRadius: 20,
-        marginBottom: 10,
-      },
-      applyView: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FEF7FF',
-        paddingVertical: 10,
-        borderTopWidth: 1,
-        borderTopColor: '#AEADAD',
-        position: 'absolute',
-        bottom: 0,
-        width: '100%'
-      },
-      applyText: {
-        color: '#FFFFFF',
-        textAlign: 'center'
-      },
-      heart: {
-        position: 'absolute',
-        bottom: 230,
-        width: 60,
-        height: 60,
-        right: 60
-      },
-    
-      ages: {
-        width: 101,
-        height: 30,
-        fontWeight: '700',
-        fontSize: 20,
-        marginHorizontal: 22,
-        marginBottom: 10,
-      },
-    
-      agesText: {
-        fontWeight: '600',
-        fontSize: 14,
-        marginHorizontal: 22,
-        marginBottom: 20
-      },
-    
-      cost: {
-        width: 101,
-        height: 25,
-        fontWeight: '700',
-        fontSize: 20,
-        marginHorizontal: 22,
-        marginBottom: 10,
-      },
-    
-      costText: {
-        fontWeight: '600',
-        fontSize: 14,
-        marginHorizontal: 22,
-        marginBottom: 50
-      },
+  container: {
+    flex: 1,
+  },
+  scrollViewContainer: {
+    flexGrow: 1,
+  },
+  scrollView: {
+    width: '100%',
+  },
+  carouselItem: {
+    width: width,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: '100%',
+    height: height * 0.4,
+  },
+  pagination: {
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 10,
+    alignSelf: 'center',
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#000',
+    margin: 5,
+  },
+  program: {
+    width: width * 0.9,
+    height: 100,
+    fontWeight: '700',
+    fontSize: 22,
+    marginHorizontal: 22,
+    paddingTop: 40,
+    marginBottom: -20,
+    marginVertical: -20
+  },
+  locIcon: {
+    width: 24,
+    height: 24,
+    marginHorizontal: 17,
+  },
+  general: {
+    flexDirection: 'row',
+  },
+  address: {
+    fontSize: 18,
+    marginLeft: -15,
+    marginBottom: 20,
+    width: width * 0.9,
+    height: 50,
+    fontWeight: '700',
+    color: 'black',
+    paddingHorizontal: 10
+  },
+  tag: {
+    width: width * 0.25,
+    height: width * 0.25,
+    marginHorizontal: 17,
+    resizeMode: 'contain'
+  },
+  tags: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    justifyContent: 'space-around'
+  },
+  dates: {
+    width: 101,
+    height: 25,
+    fontWeight: '700',
+    fontSize: 20,
+    marginHorizontal: 22,
+    marginBottom: 5,
+  },
+  dateText: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 0
+  },
+  dateText2: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 10,
+  },
+  map: {
+    height: 300,
+    width: '90%',
+    marginBottom: 20,
+  },
+  mapContainer: {
+    alignItems: 'center',
+  },
+  mS: {
+    fontWeight: '700',
+    fontSize: 20,
+    marginHorizontal: 22,
+    marginVertical: 5,
+  },
+  mSText: {
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 20,
+  },
+  contacts: {
+    marginHorizontal: 22,
+    width: 450,
+    height: 25,
+    fontSize: 20,
+    fontWeight: '700',
+    marginBottom: 5
+  },
+  emailInfo: {
+    width: 450,
+    height: 25,
+    fontWeight: '600',
+    fontSize: 17,
+    marginHorizontal: 22,
+    marginBottom: 0
+  },
+  numberInfo: {
+    width: 450,
+    height: 25,
+    fontWeight: '600',
+    fontSize: 17,
+    marginHorizontal: 22,
+    marginBottom: 120
+  },
+  apply: {
+    width: 171,
+    height: 77.17,
+    backgroundColor: '#5E60CE',
+    justifyContent: 'center',
+    borderRadius: 20,
+    marginBottom: 10,
+  },
+  applyView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FEF7FF',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#AEADAD',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%'
+  },
+  applyText: {
+    color: '#FFFFFF',
+    textAlign: 'center'
+  },
+  heart: {
+    position: 'absolute',
+    bottom: 280,
+    width: 60,
+    height: 60,
+    right: 60
+  },
 
-      backArrowContainer: {
-        position: 'absolute',
-        top: 50, 
-        left: 20,
-        zIndex: 1, 
-      },
-      backArrowImage: {
-        width: 48,
-        height: 48,
-      },
-    
-      carouselContainer: {
-        position: 'relative',
-      },
+  ages: {
+    width: 101,
+    height:30,
+    fontWeight: '700',
+    fontSize: 20,
+    marginHorizontal: 22,
+    marginBottom: 0,
+  },
 
-      heartContainer: {
-        position: 'absolute',
-        bottom: 220,
-        right: 60,
-        width: 60,
-        height: 60,
-      },
-      heartImage: {
-        width: '100%',
-        height: '100%',
-      },
-    });
-    
-    
-    
+  agesText: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 10
+  },
+
+  cost: {
+    width: 101,
+    height: 25,
+    fontWeight: '700',
+    fontSize: 20,
+    marginHorizontal: 22,
+    marginBottom: 5,
+  },
+
+  costText: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 20
+  },
+
+  backArrowContainer: {
+    position: 'absolute',
+    top: 50, 
+    left: 20,
+    zIndex: 1, 
+  },
+  backArrowImage: {
+    width: 48,
+    height: 48,
+  },
+
+  carouselContainer: {
+    position: 'relative',
+  },
+
+  dataText2: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginHorizontal: 22,
+    marginBottom: 20,
+  },
+
+  heartContainer: {
+    position: 'absolute',
+    bottom: 210,
+    right: 60,
+    width: 60,
+    height: 60,
+  },
+  heartImage: {
+    width: '100%',
+    height: '100%',
+  },
+});
+
+

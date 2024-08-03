@@ -7,17 +7,17 @@ import { useTitles } from '@/components/TitlesContext';
 const { width, height } = Dimensions.get('window');
 
 const entries = [
-  { title: 'First Image', illustration: require('@/assets/images/LasFotos1.png') },
-  { title: 'Second Image', illustration: require('@/assets/images/LasFotos2.png') },
-  { title: 'Third Image', illustration: require('@/assets/images/LasFotos3.png') },
-  { title: 'Fourth Image', illustration: require('@/assets/images/LasFotos4.png') },
+  { title: 'First Image', illustration: require('@/assets/images/Venice4.png') },
+  { title: 'Second Image', illustration: require('@/assets/images/Venice1.png') },
+  { title: 'Third Image', illustration: require('@/assets/images/Venice2.png') },
+  { title: 'Fourth Image', illustration: require('@/assets/images/Venice3.png') },
 ];
 
-const LasFotos = () => {
+const VeniceArts = () => {
   const mapRef = useRef<MapView | null>(null);
   const markerCoordinate = {
-    latitude: 34.047690,
-    longitude: -118.209900
+    latitude: 33.990910,
+    longitude: -118.445570
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const LasFotos = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleHeartClick = () => {
-    const currentTitle = 'Las Fotos';
+    const currentTitle = 'Venice Arts';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
@@ -68,14 +68,15 @@ const LasFotos = () => {
   };
 
   useEffect(() => {
-    const currentTitle = 'Las Fotos';
+    const currentTitle = 'Venice Arts';
     setIsBookmarked(titles.includes(currentTitle));
   }, [titles]);
+
 
   const router = useRouter();
 
   const handlePress = () => {
-    Linking.openURL('https://airtable.com/appPOOxlXQVfFKx3R/shruZjW3BpHN0Xs8Q');
+    Linking.openURL('https://venice-arts.formstack.com/forms/registration_fall_2024');
   }
 
   return (
@@ -99,9 +100,6 @@ const LasFotos = () => {
       <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
         <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
       </Pressable>
-      <Pressable onPress={handleHeartClick} style={styles.heart}>
-        <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-      </Pressable>
       <View style={styles.pagination}>
         {entries.map((_, index) => (
           <Pressable
@@ -112,16 +110,16 @@ const LasFotos = () => {
         ))}
       </View>
     </View>
-        <Text style={styles.program}>Las Fotos
+        <Text style={styles.program}>Venice Arts
         </Text>
         <View style={styles.general}>
           <Image style={styles.locIcon} source={require('@/assets/images/Location.png')} />
-          <Text style={styles.address}> 
-          2210 East Cesar E Chavez Ave, Los Angeles, California 90033</Text>
+          <Text style={styles.address}>13445 Beach Ave, Venice, CA 90292
+</Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/PhotographyTag.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Evening.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/DigitalArtTag.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Morning.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
   <Image
@@ -131,7 +129,7 @@ const LasFotos = () => {
 </Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
-        <Text style={styles.dateText}>Decided upon applying</Text>
+        <Text style={styles.dateText}>September 7 - December 10, 2024</Text>
         <Text style={styles.ages}>Ages</Text>
         <Text style={styles.agesText}>10 - 18</Text>
         <Text style={styles.cost}>Cost</Text>
@@ -141,28 +139,27 @@ const LasFotos = () => {
             ref={mapRef}
             style={styles.map}
             initialRegion={{
-              latitude:  34.047690,
-              longitude: -118.209900,
+              latitude: 33.990910,
+              longitude: -118.445570,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
           >
             <Marker
               coordinate={markerCoordinate}
-              title="Las Fotos"
+              title="Venice Arts"
               description="Location of Office"
             />
           </MapView>
         </View>
         <Text style={styles.mS}>Description</Text>
         <Text style={styles.mSText}>
-        The Los Fotos Program offers a unique opportunity for youth to explore photography through a variety of workshops and classes. The program is dedicated to fostering creativity and technical skills in underserved communities. Participants engage in hands-on photography lessons, learn about visual storytelling, and develop their artistic skills. The program also provides opportunities for showcasing their work in exhibitions and community projects, aiming to empower young individuals through the art of photography.
+        Venice Arts’ classes in photography, filmmaking, animation, and narrative illustration, for youth ages 10-18, will spark your curiosity and expand your creativity, while you develop projects using high quality equipment and software. Teens also receive support for college and creative career pathways, scholarships, awards, and more!
         </Text>
         <Text style={styles.contacts}>Contact</Text>
-        <Text style={styles.emailInfo}>info@lasfotosproject.org
-        </Text>
-        <Text style={styles.numberInfo}>(323) 222 - 2094
-        </Text>
+        <Text style={styles.emailInfo}>info@venicearts.org </Text>
+        <Text style={styles.numberInfo}>(310) 392 - 0846 </Text>
+
       </ScrollView>
       <View style={styles.applyView}>
         <Pressable style={styles.apply} onPress={handlePress}>
@@ -173,7 +170,7 @@ const LasFotos = () => {
   );
 };
 
-export default LasFotos;
+export default VeniceArts;
 
 
 const styles = StyleSheet.create({
@@ -182,6 +179,7 @@ const styles = StyleSheet.create({
       },
       scrollViewContainer: {
         flexGrow: 1,
+        paddingBottom: 30
       },
       scrollView: {
         width: '100%',
@@ -210,12 +208,12 @@ const styles = StyleSheet.create({
       },
       program: {
         width: width * 0.9,
-        height: 100,
+        height: 80,
         fontWeight: '700',
         fontSize: 22,
         marginHorizontal: 22,
         paddingTop: 20,
-        marginBottom: -40
+        marginBottom: -20,
       },
       locIcon: {
         width: 24,
@@ -228,7 +226,7 @@ const styles = StyleSheet.create({
       address: {
         fontSize: 18,
         marginLeft: -15,
-        marginBottom: 20,
+        marginBottom: 5,
         width: width * 0.9,
         height: 50,
         fontWeight: '700',
@@ -306,7 +304,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 17,
         marginHorizontal: 22,
-        marginBottom: 120
+        marginBottom: 100
       },
       apply: {
         width: 171,
@@ -333,7 +331,7 @@ const styles = StyleSheet.create({
       },
       heart: {
         position: 'absolute',
-        bottom: 230,
+        bottom: 220,
         width: 60,
         height: 60,
         right: 60
@@ -370,7 +368,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 22,
         marginBottom: 20
       },
-
+    
       backArrowContainer: {
         position: 'absolute',
         top: 50, 
@@ -385,10 +383,10 @@ const styles = StyleSheet.create({
       carouselContainer: {
         position: 'relative',
       },
-
+    
       heartContainer: {
         position: 'absolute',
-        bottom: 210,
+        bottom: 190,
         right: 60,
         width: 60,
         height: 60,
@@ -398,6 +396,4 @@ const styles = StyleSheet.create({
         height: '100%',
       },
     });
-    
-    
     

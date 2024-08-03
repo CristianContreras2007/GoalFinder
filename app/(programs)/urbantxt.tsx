@@ -118,7 +118,7 @@ const UrbanTXT = () => {
 </Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/Coding.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/TagCoding.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Morning.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Summer.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>

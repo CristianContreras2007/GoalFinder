@@ -28,19 +28,15 @@ const topicsData: Topic[] = [
         ]
     },
     {
-        name: 'Basketball',
-        images: [
-            { uri: require('@/assets/images/StreetSoccerLA.png'), targetPage: '/streetsoccerla', label: 'Basketball League' }
-        ]
-    },
-    {
         name: 'Photography',
         images: [
-            {uri: require('@/assets/images/LasFotosImage.png'), targetPage: '/lasfotos', label: 'Las Fotos'}
+            {uri: require('@/assets/images/LasFotosImage.png'), targetPage: '/lasfotos', label: 'Las Fotos'},
+            {uri: require('@/assets/images/VeniceArts.png'), targetPage: '/venicearts', label: 'Venice Arts'},
+            {uri: require('@/assets/images/CalArts.png'), targetPage: '/calarts', label: 'Cal Arts' }
         ]
     },
     {
-        name: 'Digital Art',
+        name: 'Drawing',
         images: [
             {uri: require('@/assets/images/InnerCityArts.png'), targetPage: '/innercityarts', label: 'Inner City Arts'}
         ]
@@ -49,7 +45,7 @@ const topicsData: Topic[] = [
         name: 'Coding',
         images: [
             {uri: require('@/assets/images/UrbanTXT.png'), targetPage: '/urbantxt', label: 'Urban TXT'},
-            {uri: require('@/assets/images/BlackGirlsCode.png'), targetPage: '/blackgirlscode', label: 'Black Girls Code'}
+            {uri: require('@/assets/images/BlackGirlsCode.png'), targetPage: '/blackgirlscode', label: 'Black Girls Code'},
         ]
     }
 ];
@@ -60,14 +56,12 @@ export default function ForYou() {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState<string>('');
 
-    // Filter images based on search query
     const filteredImages = useMemo(() => {
         return topicsData
             .flatMap(topic => topic.images)
             .filter(image => image.label.toLowerCase().includes(searchQuery.toLowerCase()));
     }, [searchQuery]);
 
-    // Filter topics based on selected topics
     const filteredTopics = useMemo(() => {
         return topicsData
             .filter(topic => selectedTopics.includes(topic.name));
@@ -75,7 +69,7 @@ export default function ForYou() {
 
     return (
         <ScrollView contentContainerStyle={styles.scrollViewContainer} showsVerticalScrollIndicator={false}>
-            <Text style={styles.welcome}>Welcome, User!</Text>
+            <Text style={styles.welcome}>Welcome, John!</Text>
             <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
             <View>
                 {searchQuery !== '' && (

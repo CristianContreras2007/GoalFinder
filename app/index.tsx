@@ -7,7 +7,7 @@ export default function Intro() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}>
     <View style={styles.container}>
-      <Image source = {require('@/assets/images/GOALSplash.png')} style = {styles.logo}/>
+      <Image source = {require('@/assets/images/GOALLogo.png')} style = {styles.logo}/>
       <Text style={styles.logoText}>GOAL Finder</Text>
       <Text style={styles.slogan}>The best way to find new programs for you</Text>
       <Pressable 
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 250,
-    marginBottom: 50
+    marginBottom: 50,
+    resizeMode: 'contain',
   }
 
 

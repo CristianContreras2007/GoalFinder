@@ -1,5 +1,6 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, TextInput, Dimensions, Pressable, Alert, TextStyle, StyleProp } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TextInput, Dimensions, Pressable, Alert, TextStyle, StyleProp, Image } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 
 const { width } = Dimensions.get('window');
@@ -107,11 +108,18 @@ const StreetSoccerLaApp: React.FC = () => {
       console.error('Error:', errorMessage);
     }
   };
+
+  const handleBackArrowClick = () => {
+    router.back(); 
+  };
   
   
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer} showsVerticalScrollIndicator={false}>
+      <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
+            <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
+            </Pressable>
       <View style={styles.container}>
         <Text style={styles.program}>Program Apply</Text>
       </View>
@@ -254,6 +262,17 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginBottom: 12,
   },
+
+  backArrowContainer: {
+    marginVertical: 50,
+    marginHorizontal: 10,
+    marginBottom: -50
+ },
+   backArrowImage: {
+     width: 48,
+     height: 48,
+     marginBottom: 0
+   },
 });
 
 export default StreetSoccerLaApp;

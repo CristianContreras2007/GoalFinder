@@ -118,8 +118,8 @@ const Ayso = () => {
 </Text>
         </View>
         <View style={styles.tags}>
-          <Image source={require('@/assets/images/SoccerTag.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Evenin.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/TagSoccer.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Evening.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Spring.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
   <Image

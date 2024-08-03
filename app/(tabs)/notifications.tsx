@@ -11,7 +11,9 @@ const programImages: Record<string, any> = {
   'Urban TXT': require('@/assets/images/TXT.png'),
   'InnerCity Arts': require('@/assets/images/InnerBookmark.png'),
   'American Youth Soccer Organization (AYSO)': require('@/assets/images/AysoBookmark.png'),
-  'Black Girls Code': require('@/assets/images/BCGBookmark.png')
+  'Black Girls Code': require('@/assets/images/BCGBookmark.png'),
+  'Venice Arts': require('@/assets/images/VeniceArtsLogo.png'),
+  'Cal Arts': require('@/assets/images/CalArtsBookmark.png')
 };
 
 const { width } = Dimensions.get('window');
@@ -49,6 +51,12 @@ const Notifications = () => {
               case 'Black Girls Code':
               router.navigate('/blackgirlscode'); 
               break;
+              case 'Venice Arts':
+                router.navigate('/venicearts'); 
+                break;
+                case 'Cal Arts':
+                router.navigate('/calarts'); 
+                break;
       default:
         break;
     }

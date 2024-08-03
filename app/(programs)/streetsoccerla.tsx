@@ -54,7 +54,7 @@ const StreetSoccerLA = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleHeartClick = () => {
-    const currentTitle = 'Urban TXT';
+    const currentTitle = 'Street Soccer LA';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
@@ -66,13 +66,14 @@ const StreetSoccerLA = () => {
   };
 
   useEffect(() => {
-    const currentTitle = 'Urban TXT';
+    const currentTitle = 'Street Soccer LA';
     setIsBookmarked(titles.includes(currentTitle));
   }, [titles]);
 
   const router = useRouter();
 
   return (
+    <View>
     <ScrollView>
     <View style={styles.container}>
       <View style={styles.carouselContainer}>
@@ -163,6 +164,13 @@ const StreetSoccerLA = () => {
       </View>
     </View>
     </ScrollView>
+    <View style={styles.applyView}>
+        <Pressable style={styles.apply} onPress={() => router.push('/streetsoccerlaapp')}>
+          <Text style={styles.applyText}>Apply</Text>
+        </Pressable>
+      </View>
+    </View>
+    
   );
 };
 

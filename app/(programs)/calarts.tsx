@@ -7,17 +7,17 @@ import { useTitles } from '@/components/TitlesContext';
 const { width, height } = Dimensions.get('window');
 
 const entries = [
-  { title: 'First Image', illustration: require('@/assets/images/LasFotos1.png') },
-  { title: 'Second Image', illustration: require('@/assets/images/LasFotos2.png') },
-  { title: 'Third Image', illustration: require('@/assets/images/LasFotos3.png') },
-  { title: 'Fourth Image', illustration: require('@/assets/images/LasFotos4.png') },
+  { title: 'First Image', illustration: require('@/assets/images/Cal1.png') },
+  { title: 'Second Image', illustration: require('@/assets/images/Cal2.png') },
+  { title: 'Third Image', illustration: require('@/assets/images/Cal3.png') },
+  { title: 'Fourth Image', illustration: require('@/assets/images/Cal4.png') },
 ];
 
-const LasFotos = () => {
+const CalArts = () => {
   const mapRef = useRef<MapView | null>(null);
   const markerCoordinate = {
-    latitude: 34.047690,
-    longitude: -118.209900
+    latitude: 34.393341,
+    longitude: -118.566856
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const LasFotos = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleHeartClick = () => {
-    const currentTitle = 'Las Fotos';
+    const currentTitle = 'Cal Arts';
     setTitles((prevTitles) => {
       const isAlreadyInArray = prevTitles.includes(currentTitle);
       const newTitles = isAlreadyInArray
@@ -68,14 +68,15 @@ const LasFotos = () => {
   };
 
   useEffect(() => {
-    const currentTitle = 'Las Fotos';
+    const currentTitle = 'Cal Arts';
     setIsBookmarked(titles.includes(currentTitle));
   }, [titles]);
+
 
   const router = useRouter();
 
   const handlePress = () => {
-    Linking.openURL('https://airtable.com/appPOOxlXQVfFKx3R/shruZjW3BpHN0Xs8Q');
+    Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSdMEh9XZ6PhIYgJJv7_j18Y7SOXP4SdPd3ZXPNuodTSzLxL5g/viewform)');
   }
 
   return (
@@ -99,9 +100,6 @@ const LasFotos = () => {
       <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
         <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
       </Pressable>
-      <Pressable onPress={handleHeartClick} style={styles.heart}>
-        <Image source={require('@/assets/images/HeartIcon.png')} style={styles.heart} />
-      </Pressable>
       <View style={styles.pagination}>
         {entries.map((_, index) => (
           <Pressable
@@ -112,17 +110,17 @@ const LasFotos = () => {
         ))}
       </View>
     </View>
-        <Text style={styles.program}>Las Fotos
+        <Text style={styles.program}>CalArts Community Arts Partnership
         </Text>
         <View style={styles.general}>
           <Image style={styles.locIcon} source={require('@/assets/images/Location.png')} />
-          <Text style={styles.address}> 
-          2210 East Cesar E Chavez Ave, Los Angeles, California 90033</Text>
+          <Text style={styles.address}>24700 McBean Parkway, Valencia, CA 91355
+</Text>
         </View>
         <View style={styles.tags}>
           <Image source={require('@/assets/images/PhotographyTag.png')} style={styles.tag} />
           <Image source={require('@/assets/images/Evening.png')} style={styles.tag} />
-          <Image source={require('@/assets/images/Fall.png')} style={styles.tag} />
+          <Image source={require('@/assets/images/Spring.png')} style={styles.tag} />
           <Pressable onPress={handleHeartClick} style={styles.heartContainer}>
   <Image
     source={isBookmarked ? require('@/assets/images/BookmarkOn.png') : require('@/assets/images/HeartIcon.png')}
@@ -131,9 +129,10 @@ const LasFotos = () => {
 </Pressable>
         </View>
         <Text style={styles.dates}>Dates</Text>
-        <Text style={styles.dateText}>Decided upon applying</Text>
+        <Text style={styles.dateText}> February 17 - May 11 
+        </Text>
         <Text style={styles.ages}>Ages</Text>
-        <Text style={styles.agesText}>10 - 18</Text>
+        <Text style={styles.agesText}>14 - 18</Text>
         <Text style={styles.cost}>Cost</Text>
         <Text style={styles.costText}>Free</Text>
         <View style={styles.mapContainer}>
@@ -141,27 +140,28 @@ const LasFotos = () => {
             ref={mapRef}
             style={styles.map}
             initialRegion={{
-              latitude:  34.047690,
-              longitude: -118.209900,
+              latitude: 34.393341,
+              longitude: -118.566856,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
           >
             <Marker
               coordinate={markerCoordinate}
-              title="Las Fotos"
-              description="Location of Office"
+              title=""
+              description="Location of Headquarters"
             />
           </MapView>
         </View>
         <Text style={styles.mS}>Description</Text>
         <Text style={styles.mSText}>
-        The Los Fotos Program offers a unique opportunity for youth to explore photography through a variety of workshops and classes. The program is dedicated to fostering creativity and technical skills in underserved communities. Participants engage in hands-on photography lessons, learn about visual storytelling, and develop their artistic skills. The program also provides opportunities for showcasing their work in exhibitions and community projects, aiming to empower young individuals through the art of photography.
+        We invite high school students to apply to the CAP Photography Lab program at CalArts. The CalArts CAP Photography Lab is a twelve- week program for high school students who are interested in learning about photography. This class is open to students of all skill levels. All equipment and materials will be provided. Classes are taught on campus by faculty from CalArts School of Art department alongside current CalArts students. The program ends with an exhibit of the students' work in May.
         </Text>
         <Text style={styles.contacts}>Contact</Text>
-        <Text style={styles.emailInfo}>info@lasfotosproject.org
+        <Text style={styles.emailInfo}>cap@calarts.edu
         </Text>
-        <Text style={styles.numberInfo}>(323) 222 - 2094
+        <Text style={styles.numberInfo}>(661) 222-2708
+
         </Text>
       </ScrollView>
       <View style={styles.applyView}>
@@ -173,7 +173,7 @@ const LasFotos = () => {
   );
 };
 
-export default LasFotos;
+export default CalArts;
 
 
 const styles = StyleSheet.create({
@@ -210,12 +210,12 @@ const styles = StyleSheet.create({
       },
       program: {
         width: width * 0.9,
-        height: 100,
+        height: 90,
         fontWeight: '700',
         fontSize: 22,
         marginHorizontal: 22,
         paddingTop: 20,
-        marginBottom: -40
+        marginBottom: 0
       },
       locIcon: {
         width: 24,
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         fontSize: 14,
         marginHorizontal: 22,
-        marginBottom: 20,
+        marginBottom: 5,
       },
       map: {
         height: 300,
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 20,
         marginHorizontal: 22,
-        marginVertical: 5,
+        marginBottom: 5,
       },
       mSText: {
         fontSize: 14,
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
       },
       heart: {
         position: 'absolute',
-        bottom: 230,
+        bottom: 240,
         width: 60,
         height: 60,
         right: 60
@@ -388,7 +388,7 @@ const styles = StyleSheet.create({
 
       heartContainer: {
         position: 'absolute',
-        bottom: 210,
+        bottom: 240,
         right: 60,
         width: 60,
         height: 60,

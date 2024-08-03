@@ -1,7 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput, Pressable, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Pressable, ScrollView, Image } from 'react-native';
 import { router } from 'expo-router';
 import { useState } from 'react'
+
+const handleBackArrowClick = () => {
+  router.back(); 
+};
 
 export default function Index() {
   const [email, setEmail] = useState('')
@@ -9,6 +13,9 @@ export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContainer}
     showsVerticalScrollIndicator = {false}>
+      <Pressable onPress={handleBackArrowClick} style={styles.backArrowContainer}>
+            <Image source={require('@/assets/images/BackArrow.png')} style={styles.backArrowImage} />
+            </Pressable>
       <View style={styles.content}>
         <Text style={styles.logo}>GoalFinder</Text>
         <Text style={styles.email}>Email</Text>

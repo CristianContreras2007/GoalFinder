@@ -8,7 +8,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/GOALSplash.png",
+      "image": "./assets/images/GOALLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#5E60CE"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/GOALSplash.png",
+        "foregroundImage": "./assets/images/GOALLogo.png",
         "backgroundColor": "#5E60CE"
       }
     },

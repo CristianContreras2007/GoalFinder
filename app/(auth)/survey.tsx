@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     backArrowContainer: {
        marginVertical: 50,
        marginHorizontal: 20,
-       marginBottom: 0
+       marginBottom: -50
     },
       backArrowImage: {
         width: 48,
