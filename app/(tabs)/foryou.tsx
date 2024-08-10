@@ -1,4 +1,4 @@
-import { Text, View, Pressable, StyleSheet, ScrollView, Image, ImageSourcePropType } from "react-native";
+import { Text, View, Pressable, StyleSheet, ScrollView, Image, ImageSourcePropType, ProgressBarAndroidBase } from "react-native";
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import React, { useState, useMemo } from 'react';
 import SearchBar from "@/components/SearchBar";
@@ -72,6 +72,12 @@ export default function ForYou() {
             <Text style={styles.welcome}>Welcome, John!</Text>
             <SearchBar value={searchQuery} onChangeText={setSearchQuery} />
             <View>
+                <Text style ={styles.program}>Sponsored Programs</Text>
+                <Pressable onPress = {() => router.navigate('/streetsoccerla')}>
+                <Image source = {require('@/assets/images/StreetSoccerLA.png')}
+                style = {styles.spacing} />
+                </Pressable>
+                
                 {searchQuery !== '' && (
                     <View>
                         <Text style={styles.resultsText}>Search Results for "{searchQuery}"</Text>

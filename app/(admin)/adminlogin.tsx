@@ -13,7 +13,7 @@ export default function Index() {
     setError('');
 
     try {
-      const response = await fetch('http://0.0.0.0:3000/login', {
+      const response = await fetch('http://10.25.252.149:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

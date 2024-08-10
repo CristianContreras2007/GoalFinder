@@ -72,7 +72,7 @@ const StreetSoccerLaApp: React.FC = () => {
   
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://0.0.0.0:3000/apply', {
+      const response = await fetch('http://10.25.252.149:3000/apply', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

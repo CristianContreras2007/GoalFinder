@@ -17,7 +17,7 @@ const StreetSoccerControl = (): JSX.Element => {
   const fetchApplications = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://0.0.0.0:3000/applications', {
+      const response = await fetch('http://10.25.252.149:3000/applications', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

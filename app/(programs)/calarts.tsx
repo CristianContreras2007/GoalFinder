@@ -148,8 +148,8 @@ const CalArts = () => {
           >
             <Marker
               coordinate={markerCoordinate}
-              title=""
-              description="Location of Headquarters"
+              title="CalArts"
+              description="Location of Campus"
             />
           </MapView>
         </View>

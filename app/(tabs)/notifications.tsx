@@ -66,7 +66,7 @@ const Notifications = () => {
     <ScrollView contentContainerStyle={styles.scrollViewContainer} showsVerticalScrollIndicator={false}>
       <View style={styles.titleContainer}>
         <View style={styles.bookMarkText}>
-          <Text style={styles.bookMarkTitle}>BookMarked</Text>
+          <Text style={styles.bookMarkTitle}>Bookmarks</Text>
         </View>
         {titles.length > 0 ? (
           titles.map((title, index) => (

@@ -157,11 +157,6 @@ const StreetSoccerLA = () => {
         <Text style={styles.emailInfo}>placeholder@gmail.com</Text>
         <Text style={styles.numberInfo}>(xxx) - xxx - xxxx</Text>
       </View>
-      <View style={styles.applyView}>
-        <Pressable style={styles.apply} onPress={() => router.push('/streetsoccerlaapp')}>
-          <Text style={styles.applyText}>Apply</Text>
-        </Pressable>
-      </View>
     </View>
     </ScrollView>
     <View style={styles.applyView}>

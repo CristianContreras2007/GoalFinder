@@ -13,7 +13,7 @@ const entries = [
   { title: 'Fourth Image', illustration: require('@/assets/images/BCG4.png') },
 ];
 
-const BlackGirlsCode = () => {
+const CoderDojo = () => {
   const mapRef = useRef<MapView | null>(null);
   const markerCoordinate = {
     latitude: 34.324810,
@@ -130,7 +130,7 @@ const BlackGirlsCode = () => {
         </View>
         <Text style={styles.dates}>Dates</Text>
         <Text style={styles.dateText}>July 22 - August 2</Text>
-        <Text style={styles.dateText2}> 9am to 4 pm pst
+        <Text style={styles.dateText2}>9am to 4 pm pst
         </Text>
         <Text style={styles.ages}>Ages</Text>
         <Text style={styles.agesText}>11 - 18</Text>
@@ -170,7 +170,7 @@ const BlackGirlsCode = () => {
   );
 };
 
-export default BlackGirlsCode;
+export default CoderDojo;
 
 
 const styles = StyleSheet.create({
